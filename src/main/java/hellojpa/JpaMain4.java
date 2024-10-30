@@ -19,7 +19,7 @@ public class JpaMain4 {
 
         try {
             Member member = em.find(Member.class, 150L);
-            member.setName("ccccc");
+            //member.setName("ccccc");
             // 준영속 상태로 변경 (실행 안됨)
             // detach : 특정 하나만 영속성 변경
             // clear : 모든 영속성 -> 준영속 변경

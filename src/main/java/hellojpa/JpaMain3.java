@@ -16,8 +16,8 @@ public class JpaMain3 {
         tx.begin();
 
         try {
-            Member member = new Member(200L, "member200");
-            em.persist(member);
+            //Member member = new Member(200L, "member200");
+            //em.persist(member);
             // 강제로 영속의 쿼리를 즉시 실행시킴, 1차 캐시를 지우는 것은 아님
             em.flush();
             System.out.println("====================");

@@ -19,8 +19,8 @@ public class JpaMain {
         try {
             // 비영속 상태
             Member member = new Member();
-            member.setId(1L);
-            member.setName("test2");
+            //member.setId(1L);
+            //member.setName("test2");
 
             // 영속 상태 (객체를 저장한 상태)
             System.out.println("===== BEFORE =====");
@@ -31,8 +31,8 @@ public class JpaMain {
 
             // 1차 캐시에서 찾아옴 select 사용 x
             Member findMember = em.find(Member.class, 2L);
-            System.out.println("findMember.getId() = " + findMember.getId());
-            System.out.println("findMember.getName() = " + findMember.getName());
+            //System.out.println("findMember.getId() = " + findMember.getId());
+            //System.out.println("findMember.getName() = " + findMember.getName());
 
             // 같은 트랜잭션 안에 영속 엔티티의 동일성 보장
             Member member1 = em.find(Member.class, 1L);

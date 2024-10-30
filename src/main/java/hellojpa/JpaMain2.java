@@ -25,7 +25,7 @@ public class JpaMain2 {
 
             // 영속 엔티티 변경감지
             Member member = em.find(Member.class, 150L);
-            member.setName("zzzzzzz");
+            //member.setName("zzzzzzz");
             System.out.println("===================================");
 
             tx.commit();
