@@ -6,7 +6,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 public class JpaMain {
-
+    // 테스트
     public static void main(String[] args) {
         // 하나만 생성해서 애플리케이션 전체에서 공유
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
