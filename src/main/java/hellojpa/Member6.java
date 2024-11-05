@@ -17,7 +17,7 @@ import java.util.List;
  * 3. 주문시간, 수량 같은 데이터가 들어올 수 있음
  */
 @Entity
-public class Member6 {
+public class Member6 extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
