@@ -1,6 +1,6 @@
 package hellojpa;
 
-import hellojpa.extend.Movie;
+import hellojpa.extend.Movie2;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -9,19 +9,17 @@ import jakarta.persistence.Persistence;
 /**
  * 상속 관계 매핑
  * <p>
- * 조인 테이블 전략
+ * 단일 테이블 전략
  * <p>
  * 장점 :
- * 1. 테이블이 정규화 되어있다.
- * 2. 외래 키 참조 무결성 제약조건 활용 가능
- * 3. 저장 공간 효율화
+ * 1. 조인이 필요 없어 조회 성능이 빠름
+ * 2. 조회 쿼리가 단순함
  * <p>
  * 단점 :
- * 1. 조회시 조인을 많이 사용, 성능 저하
- * 2. 조회 쿼리 복잡함
- * 3. 데이터 저장시 Insert SQL 2번 호출
+ * 1. 매핑된 모든 컬럼은 Null을 허용 해줘야함
+ * 2. 모든것을 저장 함으로 테이블이 커질 수도 있고 상황에 따라서 조회 성능이 느려짐
  */
-public class JpaMain11 {
+public class JpaMain12 {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -31,16 +29,16 @@ public class JpaMain11 {
         tx.begin();
 
         try {
-            Movie movie = new Movie();
-            movie.setDirector("A");
-            movie.setActor("bbb");
-            movie.setName("바람과 함께 사라지다");
-            movie.setPrice(10000);
+            Movie2 movie = new Movie2();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbbbb");
+            movie.setName("바람과 함께 사라지다111");
+            movie.setPrice(100000);
             em.persist(movie);
 
             em.flush();
             em.clear();
-            Movie findMovie = em.find(Movie.class, movie.getId());
+            Movie2 findMovie = em.find(Movie2.class, movie.getId());
             System.out.println(findMovie.getName());
             tx.commit();
         } catch (Exception e) {
